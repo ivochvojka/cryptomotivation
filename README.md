@@ -15,6 +15,7 @@
 * Correct Clean Architecture.
 * Product flavours like release with Proguard etc.
 * 3rd party integrations (Crashlytics, Analytics, etc.).
+* Detekt, SonarQube etc.
 * CI/CD workflows.
 * Accessibility.
 
