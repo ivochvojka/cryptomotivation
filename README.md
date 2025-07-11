@@ -28,3 +28,9 @@
 ### Problems
 
 * AsyncImage on iOS - loads images on main thread - iOS app is stuck for several second at the beginning.
+
+### Previews
+
+<img width="432" height="960" alt="cryptocurrencies" src="https://github.com/user-attachments/assets/cea2c74b-32c3-4a98-9413-ce44ed3448b1" />
+<img width="432" height="960" alt="favorites" src="https://github.com/user-attachments/assets/531f8233-7f94-462d-b757-04aa3c79e64b" />
+<img width="432" height="960" alt="Detail" src="https://github.com/user-attachments/assets/44e74bcb-44f6-4b0b-91e3-2c3a52717e6c" />
