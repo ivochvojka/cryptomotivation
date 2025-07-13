@@ -21,13 +21,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -38,8 +38,8 @@ import cryptomotivation.composeapp.generated.resources.detail_max_supply
 import cryptomotivation.composeapp.generated.resources.detail_not_available
 import cryptomotivation.composeapp.generated.resources.loading_spinner
 import cz.ich.core.domain.formatAmount
-import cz.ich.cryptomotivation.domain.model.CryptoData
 import cz.ich.core.presentation.component.AppProgressIndicator
+import cz.ich.cryptomotivation.domain.model.CryptoData
 import cz.ich.cryptomotivation.presentation.screenmodel.CryptoDetailScreenModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -59,7 +59,7 @@ class CryptoDetailScreen(
         val screenModel = koinScreenModel<CryptoDetailScreenModel> {
             parametersOf(data)
         }
-        val viewState by screenModel.viewState.collectAsState()
+        val viewState by screenModel.viewState.collectAsStateWithLifecycle()
         val navigator = LocalNavigator.currentOrThrow
 
         when {

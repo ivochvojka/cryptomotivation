@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class CryptoDetailScreenModel(
-    private val cryptoData: CryptoData,
+    cryptoData: CryptoData,
     private val updateCrypto: UpdateCryptoUseCase,
 ) : ScreenModel {
     private val _viewState = MutableStateFlow(UiState(data = cryptoData))

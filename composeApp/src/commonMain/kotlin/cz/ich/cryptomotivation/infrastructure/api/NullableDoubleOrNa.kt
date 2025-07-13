@@ -8,6 +8,9 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
+/**
+ * Serializer for nullable double values which can contain 'N/A' string.
+ */
 object NullableDoubleOrNa : KSerializer<Double?> {
     override val descriptor: SerialDescriptor =
         PrimitiveSerialDescriptor("NullableDoubleOrNA", PrimitiveKind.DOUBLE)

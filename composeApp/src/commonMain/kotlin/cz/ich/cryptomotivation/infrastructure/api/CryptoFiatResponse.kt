@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 data class CryptoFiatResponse(
     val success: Boolean,
     @SerialName("crypto")
-    val cryptoInfo: Map<String, CryptoInfo>,//? = emptyMap<String, CryptoInfo>(),
-    val fiat: Map<String, String>,//? = emptyMap<String, String>(),
+    val cryptoInfo: Map<String, CryptoInfo>,
+    val fiat: Map<String, String>,
 )
 
 @Serializable

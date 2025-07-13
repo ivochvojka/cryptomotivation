@@ -2,6 +2,7 @@ package cz.ich.cryptomotivation.presentation.screenmodel
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
+import com.diamondedge.logging.logging
 import cz.ich.core.presentation.model.UiState
 import cz.ich.core.domain.model.onError
 import cz.ich.core.domain.model.onSuccess
@@ -23,6 +24,8 @@ class CryptosScreenModel(
     )
     val viewState: StateFlow<UiState<List<CryptoData>>> = _viewState
 
+    private val log = logging(this::class.simpleName)
+
     init {
         loadProductList()
     }
@@ -30,15 +33,18 @@ class CryptosScreenModel(
     fun hideErrorDialog() = _viewState.hideError()
 
     private fun loadProductList() {
+        log.debug { "loadProductList()" }
         screenModelScope.launch {
             getCryptoList().collect { state ->
                 state.onSuccess { data ->
+                    log.debug { "loadProductList.onSuccess()" }
                     _viewState.update {
                         UiState(
                             data = data,
                         )
                     }
                 }.onError { error ->
+                    log.error { "loadProductList.onError(error=$error)" }
                     _viewState.update {
                         UiState(
                             data = viewState.value.data,
