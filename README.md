@@ -2,6 +2,10 @@
 
 ## The aim of this application is to enable basic operations with cryptocurrencies.
 
+## Important information to build the application
+
+* **coinlayer.api.key=** with corresponding API key must be added in local.properties.
+
 ### Project contains three modules
 
 * `/composeApp` with Crypto specific features.
