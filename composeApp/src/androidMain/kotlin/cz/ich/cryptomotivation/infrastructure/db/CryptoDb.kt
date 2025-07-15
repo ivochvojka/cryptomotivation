@@ -1,9 +1,8 @@
-package cz.ich.cryptomotivation.database
+package cz.ich.cryptomotivation.infrastructure.db
 
 import android.content.Context
 import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import cz.ich.cryptomotivation.infrastructure.db.CryptoDatabase
 import kotlinx.coroutines.Dispatchers
 
 /**
