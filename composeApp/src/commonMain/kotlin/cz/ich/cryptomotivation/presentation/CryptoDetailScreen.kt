@@ -101,7 +101,7 @@ class CryptoDetailScreen(
             bottomBar = {
                 DetailBottomBar(
                     sendEvent = sendEvent,
-                    modifier = Modifier.padding(horizontal = 12.dp),
+                    modifier = Modifier.padding(12.dp),
                 )
             },
         ) { paddingValues ->
