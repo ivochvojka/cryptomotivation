@@ -1,14 +1,14 @@
 package cz.ich.cryptomotivation.presentation.screenmodel
 
-import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import com.diamondedge.logging.logging
-import cz.ich.core.presentation.model.UiState
 import cz.ich.core.domain.model.onError
 import cz.ich.core.domain.model.onSuccess
 import cz.ich.core.presentation.hideError
+import cz.ich.core.presentation.model.UiState
+import cz.ich.core.presentation.screenmodel.BaseScreenModel
 import cz.ich.cryptomotivation.domain.model.CryptoData
 import cz.ich.cryptomotivation.domain.usecase.GetCryptoListUseCase
+import cz.ich.cryptomotivation.presentation.model.CryptosEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -16,21 +16,23 @@ import kotlinx.coroutines.launch
 
 class CryptosScreenModel(
     private val getCryptoList: GetCryptoListUseCase,
-) : ScreenModel {
+) : BaseScreenModel<List<CryptoData>, CryptosEvent>() {
     private val _viewState = MutableStateFlow(
         UiState(
             data = listOf<CryptoData>(), isLoading = true
         )
     )
-    val viewState: StateFlow<UiState<List<CryptoData>>> = _viewState
-
-    private val log = logging(this::class.simpleName)
+    override val viewState: StateFlow<UiState<List<CryptoData>>> = _viewState
 
     init {
         loadProductList()
     }
 
-    fun hideErrorDialog() = _viewState.hideError()
+    override fun onEvent(event: CryptosEvent) {
+        when (event) {
+            CryptosEvent.HideErrorDialog -> _viewState.hideError()
+        }
+    }
 
     private fun loadProductList() {
         log.debug { "loadProductList()" }

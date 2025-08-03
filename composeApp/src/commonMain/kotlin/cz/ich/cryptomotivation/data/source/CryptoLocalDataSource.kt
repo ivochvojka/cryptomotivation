@@ -3,6 +3,9 @@ package cz.ich.cryptomotivation.data.source
 import cz.ich.cryptomotivation.infrastructure.db.CryptoEntity
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Local data source for cryptocurrencies.
+ */
 interface CryptoLocalDataSource {
 
     suspend fun insertAll(cryptoList: List<CryptoEntity>)

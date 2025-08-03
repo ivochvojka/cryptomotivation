@@ -13,5 +13,6 @@ fun getDatabaseBuilder(ctx: Context): CryptoDatabase {
     return Room.databaseBuilder<CryptoDatabase>(ctx, dbFile.absolutePath)
         .setDriver(BundledSQLiteDriver())
         .setQueryCoroutineContext(Dispatchers.IO)
+        .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
         .build()
 }

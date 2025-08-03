@@ -14,7 +14,7 @@
 
 ### Project is not complete. Still missing:
 
-* Features to operate with cryptocurrencies.
+* More features to operate with cryptocurrencies.
 * Tests (JUnit, Screenshot tests (like Paparazzi)).
 * Correct Clean Architecture.
 * Product flavours like release with Proguard etc.

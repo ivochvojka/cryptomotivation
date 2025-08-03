@@ -2,6 +2,7 @@ package cz.ich.cryptomotivation.infrastructure.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import cz.ich.core.domain.model.BigDecimal
 
 @Entity
 data class CryptoEntity(
@@ -10,5 +11,5 @@ data class CryptoEntity(
     val name: String,
     val maxSupply: Double?,
     val iconUrl: String,
-    val isFavorite: Boolean = false,
+    val wallet: BigDecimal,
 )

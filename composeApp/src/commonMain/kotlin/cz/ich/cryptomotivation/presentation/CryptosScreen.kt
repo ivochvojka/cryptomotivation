@@ -23,6 +23,7 @@ import cz.ich.cryptomotivation.domain.model.CryptoData
 import cz.ich.cryptomotivation.presentation.component.CryptoColumn
 import cz.ich.cryptomotivation.presentation.component.CryptoNavigationBar
 import cz.ich.cryptomotivation.presentation.model.CryptocurrencyBarItem
+import cz.ich.cryptomotivation.presentation.model.CryptosEvent
 import cz.ich.cryptomotivation.presentation.screenmodel.CryptosScreenModel
 import org.jetbrains.compose.resources.stringResource
 
@@ -38,7 +39,7 @@ class CryptosScreen : Screen {
         when {
             viewState.error != null -> AppAlertDialog(
                 text = stringResource(Res.string.dialog_error_loading),
-                onCloseClicked = { screenModel.hideErrorDialog() },
+                onCloseClicked = { screenModel.onEvent(CryptosEvent.HideErrorDialog) },
             )
 
             viewState.isLoading -> AppProgressIndicator()

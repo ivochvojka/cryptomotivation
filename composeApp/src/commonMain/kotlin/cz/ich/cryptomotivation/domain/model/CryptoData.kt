@@ -1,5 +1,7 @@
 package cz.ich.cryptomotivation.domain.model
 
+import cz.ich.core.domain.model.BigDecimal
+
 /**
  * Data class representing cryptocurrency.
  *
@@ -8,8 +10,7 @@ package cz.ich.cryptomotivation.domain.model
  * @property name Full name of the cryptocurrency.
  * @property maxSupply Maximum supply of the cryptocurrency.
  * @property iconUrl The URL of the cryptocurrency icon.
- * @property isFavorite Whether the cryptocurrency is a favorite or not.
- * Favorite cryptocurrencies are displayed in own navigation bar item.
+ * @property wallet The amount of the cryptocurrency in the wallet.
  */
 data class CryptoData(
     val id: Int,
@@ -17,5 +18,5 @@ data class CryptoData(
     val name: String,
     val maxSupply: Double?,
     val iconUrl: String,
-    val isFavorite: Boolean = false,
+    val wallet: BigDecimal,
 )

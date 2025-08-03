@@ -19,5 +19,5 @@ interface CryptoRepository {
     /**
      * Update cryptocurrency in local data source.
      */
-    suspend fun updateCrypto(crypto: CryptoData)
+    suspend fun updateCrypto(crypto: CryptoData): Result<Unit>
 }

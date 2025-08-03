@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "1290f01430bd3658613133a8a0646f29",
+    "version": 3,
+    "identityHash": "1d2e54db6a401739c306f1153c5757c8",
     "entities": [
       {
         "tableName": "CryptoEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `symbol` TEXT NOT NULL, `name` TEXT NOT NULL, `maxSupply` REAL, `iconUrl` TEXT NOT NULL, `wallet` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `symbol` TEXT NOT NULL, `name` TEXT NOT NULL, `maxSupply` REAL, `iconUrl` TEXT NOT NULL, `wallet` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -40,7 +40,7 @@
           {
             "fieldPath": "wallet",
             "columnName": "wallet",
-            "affinity": "REAL",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -54,7 +54,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1290f01430bd3658613133a8a0646f29')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1d2e54db6a401739c306f1153c5757c8')"
     ]
   }
 }

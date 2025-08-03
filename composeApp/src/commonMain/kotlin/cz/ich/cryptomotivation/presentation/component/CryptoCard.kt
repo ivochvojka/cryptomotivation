@@ -79,7 +79,7 @@ fun CryptoCard(
                 textAlign = TextAlign.End,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (showFavoriteIcon && cryptoData.isFavorite) {
+            if (showFavoriteIcon && cryptoData.wallet.isPositive()) {
                 Icon(
                     painter = rememberVectorPainter(image = Icons.Filled.Favorite),
                     contentDescription = null,

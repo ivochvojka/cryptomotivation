@@ -18,7 +18,7 @@ interface CryptoDao {
     @Query("SELECT * FROM CryptoEntity")
     fun getAllCrypto(): Flow<List<CryptoEntity>>
 
-    @Query("SELECT * FROM CryptoEntity WHERE isFavorite = 1")
+    @Query("SELECT * FROM CryptoEntity WHERE wallet != 0.0 AND wallet != 0 AND wallet IS NOT NULL AND wallet != ''")
     fun getFavoriteCryptos(): Flow<List<CryptoEntity>>
 
     @Update
