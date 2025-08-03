@@ -20,12 +20,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import cryptomotivation.composeapp.generated.resources.Res
+import cryptomotivation.composeapp.generated.resources.transaction_button_buy
+import cryptomotivation.composeapp.generated.resources.transaction_button_sell
+import cryptomotivation.composeapp.generated.resources.transaction_button_sell_all
+import cryptomotivation.composeapp.generated.resources.transaction_input_hint
 import cz.ich.core.domain.model.BigDecimal
 import cz.ich.core.presentation.formatters.DecimalNumberFormatter
 import cz.ich.core.presentation.formatters.DecimalVisualTransformation
 import cz.ich.cryptomotivation.presentation.model.CryptoDetailEvent
 import cz.ich.cryptomotivation.presentation.model.CryptoDetailModel
 import cz.ich.cryptomotivation.presentation.model.CryptoTransactionType
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Bottom sheet for cryptocurrency transaction.
@@ -68,7 +74,7 @@ fun TransactionBottomSheet(
                         }
                     },
                     label = {
-                        Text("Amount")
+                        Text(stringResource(Res.string.transaction_input_hint))
                     },
                     maxLines = 1,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Companion.Decimal),
@@ -83,7 +89,7 @@ fun TransactionBottomSheet(
                         onClick = { sendEvent(CryptoDetailEvent.SellAll) },
                     ) {
                         Text(
-                            text = "All"
+                            text = stringResource(Res.string.transaction_button_sell_all)
                         )
                     }
                 }
@@ -100,8 +106,14 @@ fun TransactionBottomSheet(
             ) {
                 Text(
                     text = when (model.transactionType) {
-                        CryptoTransactionType.Buy -> "Buy"
-                        CryptoTransactionType.Sell -> "Sell"
+                        CryptoTransactionType.Buy -> stringResource(
+                            Res.string.transaction_button_buy
+                        )
+
+                        CryptoTransactionType.Sell -> stringResource(
+                            Res.string.transaction_button_sell
+                        )
+
                         else -> ""
                     }
                 )

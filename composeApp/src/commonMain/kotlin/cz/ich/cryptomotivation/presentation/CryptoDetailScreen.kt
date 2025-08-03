@@ -36,6 +36,8 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import coil3.compose.AsyncImage
 import cryptomotivation.composeapp.generated.resources.Res
+import cryptomotivation.composeapp.generated.resources.detail_button_buy
+import cryptomotivation.composeapp.generated.resources.detail_button_sell
 import cryptomotivation.composeapp.generated.resources.detail_max_supply
 import cryptomotivation.composeapp.generated.resources.detail_not_available
 import cryptomotivation.composeapp.generated.resources.loading_spinner
@@ -218,7 +220,7 @@ class CryptoDetailScreen(
                 },
                 modifier = Modifier.weight(1f).widthIn(min = 80.dp)
             ) {
-                Text("Buy")
+                Text(stringResource(Res.string.detail_button_buy))
             }
 
             Button(
@@ -231,7 +233,7 @@ class CryptoDetailScreen(
                 },
                 modifier = Modifier.weight(1f).widthIn(min = 30.dp)
             ) {
-                Text("Sell")
+                Text(stringResource(Res.string.detail_button_sell))
             }
         }
     }
